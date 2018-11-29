@@ -6,10 +6,10 @@ var mongoose = require('mongoose'),
 
 //funcao apenas para mostrar que os clientes estão sendo cadastrados
 exports.list_all_users = function(req, res) {
-  user.find({}, function(err, user) {
+  user.find({},{name: 1}, function(err, user) {
     if (err)
       res.send(err);
-    res.json(user.name);
+    res.json(user);
   });
 };
 
@@ -26,10 +26,10 @@ exports.create_a_user = function(req, res) {
 };
 
 exports.login = function(req, res) {
-  user.find({email: req.params.userEmail, password: req.params.userPassword}, function(err, user) {
+  user.findOne({email: req.body.userEmail, password: req.body.userPassword},{_id:1}, function(err, user) {
     if (err)
       res.send(err);
-    res.json(user._id);
+    res.json(user);
   });
 };
 

@@ -2,7 +2,7 @@ var express = require('express'),
 app = express(),
 port = process.env.PORT || 3000,
 mongoose = require('mongoose'),
-Game = require('./api/models/iSteamGameModel'), //created model loading here
+Game = require('./api/models/iSteamUserModel'), //created model loading here
 bodyParser = require('body-parser');
 
 // mongoose instance connection url connection
@@ -25,4 +25,4 @@ app.use(function(req, res) {
 app.listen(port);
 
 
-console.log('todo list RESTful API server started on: ' + port);
+console.log('iSteam Login API');
