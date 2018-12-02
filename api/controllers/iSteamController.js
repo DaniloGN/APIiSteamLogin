@@ -26,7 +26,7 @@ exports.create_a_user = function(req, res) {
 };
 
 exports.login = function(req, res) {
-  user.findOne({email: req.body.userEmail, password: req.body.userPassword},{_id:1}, function(err, user) {
+  user.findOne({email: req.body.userEmail, password: req.body.userPassword},{_id:1,name:1}, function(err, user) {
     if (err)
       res.send(err);
     res.json(user);
