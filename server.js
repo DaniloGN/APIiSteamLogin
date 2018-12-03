@@ -1,10 +1,10 @@
-var express = require('express'),
+var express = require('express')
 var cors = require('cors')
-app = express(),
-port = process.env.PORT || 3000,
-mongoose = require('mongoose'),
-Game = require('./api/models/iSteamUserModel'), //created model loading here
-bodyParser = require('body-parser');
+app = express()
+port = process.env.PORT || 3000
+mongoose = require('mongoose')
+Game = require('./api/models/iSteamUserModel')//created model loading here
+bodyParser = require('body-parser')
 
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
@@ -14,6 +14,7 @@ mongoose.connect(uri);
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
    res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
